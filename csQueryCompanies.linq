@@ -14,9 +14,9 @@ void Main()
 	CQ dom2 = null;
 	var connection = new SqlConnection(sqlConnectionString);
 	connection.Open();
-	for (int y = 1; y < 17; y++)
+	for (int y = 1; y < 3; y++)
 	{
-		dom = CQ.CreateFromUrl("http://www.nasdaq.com/screening/companies-by-industry.aspx?industry=ALL&exchange=NASDAQ&pagesize=200&page=" + y);
+		dom = CQ.CreateFromUrl("http://www.nasdaq.com/screening/companies-by-industry.aspx?pagesize=200&exchange=AMEX&page=" + y);
 		var trs = dom["#CompanylistResults tbody tr"];
 
 		for (var x = 0; x < 400 && x < trs.Count(); x += 2)
@@ -49,7 +49,7 @@ void Main()
            ,[SubSector]
            ,[IPOYear])
      VALUES
-           (1
+           (3
            ,'{0}'
            ,'{1}'
            ,'{2}'
